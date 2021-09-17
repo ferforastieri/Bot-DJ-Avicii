@@ -72,7 +72,7 @@ class music(commands.Cog):
         embedhelp = discord.Embed(
             colour = 1646116,#grey
             title=f'Comandos do {self.client.user.name}',
-            description = helptxt+'\n[Crie seu próprio Bot de Música](https://youtu.be/YGx0xNHzjgE)'
+            description = helptxt+
         )
         embedhelp.set_thumbnail(url=self.client.user.avatar_url)
         await ctx.send(embed=embedhelp)
@@ -104,7 +104,7 @@ class music(commands.Cog):
             else:
                 embedvc = discord.Embed(
                     colour= 32768,#green
-                    description = f"Você adicionou a música **{song['title']}** à fila!\n\n[Crie seu próprio Bot de Música](https://youtu.be/YGx0xNHzjgE)"
+                    description = f"Você adicionou a música **{song['title']}** à fila!\n\n"
                 )
                 await ctx.send(embed=embedvc)
                 self.music_queue.append([song, voice_channel])
