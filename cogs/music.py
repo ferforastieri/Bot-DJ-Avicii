@@ -72,7 +72,7 @@ class music(commands.Cog):
         embedhelp = discord.Embed(
             colour = 1646116,#grey
             title=f'Comandos do {self.client.user.name}',
-            description = helptxt+
+            description = helptxt+''
         )
         embedhelp.set_thumbnail(url=self.client.user.avatar_url)
         await ctx.send(embed=embedhelp)
@@ -104,7 +104,7 @@ class music(commands.Cog):
             else:
                 embedvc = discord.Embed(
                     colour= 32768,#green
-                    description = f"Você adicionou a música **{song['title']}** à fila!\n\n"
+                    description = f"Você adicionou a música **{song['title']}** à fila!"
                 )
                 await ctx.send(embed=embedvc)
                 self.music_queue.append([song, voice_channel])
@@ -116,7 +116,7 @@ class music(commands.Cog):
     async def q(self, ctx):
         retval = ""
         for i in range(0, len(self.music_queue)):
-            retval += f'{i+1}' + self.music_queue[i][0]['title'] + "\n"
+            retval += f'**{i+1} - **' + self.music_queue[i][0]['title'] + "\n"
 
         print(retval)
         if retval != "":
